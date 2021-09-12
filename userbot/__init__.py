@@ -253,6 +253,11 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
+# VC
+VCSESSION = os.environ.get("VCSESSION", None)
+ADMINS = os.environ.get("ADMINS", None)
+PREFIX = os.environ.get("PREFIX", None)
+
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
