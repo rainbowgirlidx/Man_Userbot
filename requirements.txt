@@ -74,7 +74,7 @@ pySmartDL
 python-barcode
 python-dateutil
 python-dotenv
-pytube>=9.5.1
+pytube
 pytz
 qrcode
 rarfile
@@ -104,3 +104,6 @@ youtube-dl
 youtube-search
 youtube-search-python
 zipfile38
+pyrogram
+pytgcalls
+py-tgcalls-wrapper
