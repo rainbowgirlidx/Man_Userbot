@@ -5,10 +5,6 @@ from userbot import API_KEY, API_HASH, PREFIX, ADMINS, VCSESSION
 import logging
 from userbot.vcplugin.string import startedsong, Text
 from os import remove
-import os
-import youtube_dl
-from youtube_search import YoutubeSearch
-import requests
 
 try:
     VCSESSION = VCSESSION
@@ -32,7 +28,7 @@ pytgcalls = PyTgCalls(client)
 pycalls = Wrapper(pytgcalls, "raw")
 
 
-@client.on_message(filters.command(['play'], ['!','.','/']) & filters.me)
+@client.on_message(filters.command(['play'], ['!', '.', '/']) & filters.me)
 async def seslendir(_, message):
     txt = message.text.split(" ", 1)
     type_ = None
@@ -67,13 +63,13 @@ async def seslendir(_, message):
         return await message.reply_text(Text.how_to)
 
 
-@client.on_message(filters.command(['pause'], ['!','.','/']) & filters.me)
+@client.on_message(filters.command(['pause'], ['!', '.', '/']) & filters.me)
 async def pause(_, message):
     pycalls.pause(message.chat.id)
     await message.reply_text("**Paused**")
 
 
-@client.on_message(filters.command(['resume'], ['!','.','/']) & filters.me)
+@client.on_message(filters.command(['resume'], ['!', '.', '/']) & filters.me)
 async def resume(_, message):
     pycalls.resume(message.chat.id)
     await message.reply_text("**Resumed**")

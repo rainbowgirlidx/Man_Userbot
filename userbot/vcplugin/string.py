@@ -12,8 +12,9 @@ class Text:
   - `{x}song <nama lagu> - __mengunduh musik.__
 **Man UserBot**"""
 
+
 async def startedsong(pycalls, message, song):
     try:
         await pycalls.stream(message.chat.id, song)
     except Exception as e:
-        await message.reply_text(f"**Tidak dapat berbunyi!**\n\n**ERROR**\n{e}")  
+        await message.reply_text(f"**Tidak dapat berbunyi!**\n\n**ERROR**\n{e}")
