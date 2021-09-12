@@ -8,6 +8,4 @@ COPY ./sample_config.env ./config.env* /home/manuserbot/
 
 WORKDIR /home/manuserbot/
 
-RUN pip3 install -r https://raw.githubusercontent.com/mrismanaziz/Man-Userbot/Man-Userbot/requirements.txt
-
 CMD ["python3", "-m", "userbot"]
