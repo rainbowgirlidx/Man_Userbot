@@ -79,6 +79,7 @@ qrcode
 rarfile
 redis>=3.3.10
 REPO_LINK
+randomstuff.py
 requests
 scipy
 selenium>=3.141.0 
