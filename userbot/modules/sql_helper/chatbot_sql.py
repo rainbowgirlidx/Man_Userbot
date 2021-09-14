@@ -44,7 +44,8 @@ def is_added(chat_id, user_id):
 
 def get_users(chat_id):
     try:
-        return SESSION.query(ChatBot).filter(ChatBot.chat_id == str(chat_id)).all()
+        return SESSION.query(ChatBot).filter(
+            ChatBot.chat_id == str(chat_id)).all()
     finally:
         SESSION.close()
 
@@ -62,8 +63,12 @@ def addai(chat_id, user_id, chat_name, user_name, user_username, chat_type):
     to_check = is_added(chat_id, user_id)
     if not to_check:
         adder = ChatBot(
-            str(chat_id), str(user_id), chat_name, user_name, user_username, chat_type
-        )
+            str(chat_id),
+            str(user_id),
+            chat_name,
+            user_name,
+            user_username,
+            chat_type)
         SESSION.add(adder)
         SESSION.commit()
         return True
@@ -71,8 +76,12 @@ def addai(chat_id, user_id, chat_name, user_name, user_username, chat_type):
     SESSION.delete(rem)
     SESSION.commit()
     adder = ChatBot(
-        str(chat_id), str(user_id), chat_name, user_name, user_username, chat_type
-    )
+        str(chat_id),
+        str(user_id),
+        chat_name,
+        user_name,
+        user_username,
+        chat_type)
     SESSION.add(adder)
     SESSION.commit()
     return False
@@ -89,7 +98,8 @@ def remove_ai(chat_id, user_id):
 
 
 def remove_users(chat_id):
-    saved_filter = SESSION.query(ChatBot).filter(ChatBot.chat_id == str(chat_id))
+    saved_filter = SESSION.query(ChatBot).filter(
+        ChatBot.chat_id == str(chat_id))
     if saved_filter:
         saved_filter.delete()
         SESSION.commit()
