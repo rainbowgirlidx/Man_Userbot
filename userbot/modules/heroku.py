@@ -4,6 +4,7 @@
    Heroku manager for your userbot
 """
 
+import asyncio
 import math
 import os
 
@@ -27,11 +28,12 @@ else:
 """
 
 
+@register(outgoing=True, pattern=r"^\.(get|del)var(?: |$)(\w*)")
 @register(outgoing=True, pattern=r"^\.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
-        await var.edit("**[HEROKU]" "\nHarap Siapkan** `HEROKU_APP_NAME`")
+        await var.edit("**[HEROKU]" "\nSilahkan Tambahkan Var** `HEROKU_APP_NAME`")
         return False
     if exe == "get":
         await var.edit("`Mendapatkan Informasi...`")
@@ -43,9 +45,12 @@ async def variable(var):
                     f"`{item}` = `{configvars[item]}`\n" for item in configvars
                 )
                 await var.client.send_message(
-                    BOTLOG_CHATID, "#CONFIGVARS\n\n" "**Config Vars**:\n" f"{msg}"
+                    BOTLOG_CHATID,
+                    "**Logger : #SYSTEM**\n\n" "**#LIST_CONFIG_VAR**:\n" f"{msg}",
                 )
                 await var.edit("**Berhasil Mengirim Ke BOTLOG_CHATID**")
+                await asyncio.sleep(30)
+                await var.delete()
                 return True
             else:
                 await var.edit("**Mohon Ubah Var** `BOTLOG` **Ke** `True`")
@@ -59,18 +64,24 @@ async def variable(var):
                     f"`{variable}` **=** `{heroku_var[variable]}`\n",
                 )
                 await var.edit("**Berhasil Mengirim Ke BOTLOG_CHATID**")
+                await asyncio.sleep(30)
+                await var.delete()
                 return True
             else:
                 await var.edit("**Mohon Ubah Var** `BOTLOG` **Ke** `True`")
                 return False
         else:
-            await var.edit("`Informasi Tidak Ditemukan...`")
+            await var.edit("**Informasi Tidak Ditemukan**")
+            await asyncio.sleep(20)
+            await var.delete()
             return True
     elif exe == "del":
         await var.edit("`Menghapus Config Vars...`")
         variable = var.pattern_match.group(2)
         if variable == "":
-            await var.edit("`Mohon Tentukan Config Vars Yang Mau Anda Hapus`")
+            await var.edit("**Mohon Tentukan Config Var Mana Yang ingin Anda Hapus**")
+            await asyncio.sleep(30)
+            await var.delete()
             return False
         if variable in heroku_var:
             if BOTLOG:
@@ -80,13 +91,18 @@ async def variable(var):
                     "**#SET #VAR_HEROKU #DELETED**\n\n"
                     f"`{variable}`",
                 )
-            await var.edit("**Config Vars Telah Dihapus**")
+            await var.edit("**Config Var Berhasil Dihapus**")
+            await asyncio.sleep(20)
+            await var.delete()
             del heroku_var[variable]
         else:
-            await var.edit("**Tidak Dapat Menemukan Config Vars**")
+            await var.edit("**Tidak Dapat Menemukan Config Var Tersebut**")
+            await asyncio.sleep(20)
+            await var.delete()
             return True
 
 
+@register(outgoing=True, pattern=r"^\.setvar (\w*) ([\s\S]*)")
 @register(outgoing=True, pattern=r"^\.set var (\w*) ([\s\S]*)")
 async def set_var(var):
     if app is None:
@@ -113,8 +129,10 @@ async def set_var(var):
                 "**#SET #VAR_HEROKU #ADDED**\n\n"
                 f"`{variable}` **=** `{value}`",
             )
-        await var.edit("`Menambahkan Config Vars...`")
-    heroku_var[variable] = value
+        await var.edit("**Berhasil Menambahkan Config Var Heroku**")
+        await asyncio.sleep(20)
+        await var.delete()
+        heroku_var[variable] = value
 
 
 """
