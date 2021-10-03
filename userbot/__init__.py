@@ -90,6 +90,7 @@ API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_SESSION2 = os.environ.get("STRING_SESSION2", None)
 
 # Logging channel/group ID configuration.
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
@@ -300,6 +301,14 @@ for binary, path in binaries.items():
 if STRING_SESSION:
     bot = TelegramClient(
         session=StringSession(STRING_SESSION),
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        auto_reconnect=True,
+        connection_retries=-1,
+    )
+elif STRING_SESSION2:
+    bot = TelegramClient(
+        session=StringSession(STRING_SESSION2),
         api_id=API_KEY,
         api_hash=API_HASH,
         auto_reconnect=True,
