@@ -120,7 +120,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/mrismanaziz/Man-Userbot.git")
+    "https://github.com/UserXTester/Man_Userbot.git")
 UPSTREAM_REPO_BRANCH = os.environ.get(
     "UPSTREAM_REPO_BRANCH", "Man-Userbot")
 
@@ -436,9 +436,9 @@ with bot:
                 f"**Hey**, __I am using__ 🔥 **Man-Userbot** 🔥\n\n"
                 f"       __Thanks For Using me__\n\n"
                 f"✣ **Userbot Version :** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n"
-                f"✣ **Group Support :** [Sharing Userbot](t.me/sharinguserbot)\n"
-                f"✣ **Owner Repo :** [Risman](t.me/mrismanaziz)\n"
-                f"✣ **Repo :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n")
+                f"✣ **Group Support :** [Sharing Userbot](t.me/telegram)\n"
+                f"✣ **Owner Repo :** [Risman](t.me/telegram)\n"
+                f"✣ **Repo :** [Man-Userbot](https://github.com/UserXTester/Man_Userbot)\n")
             await tgbot.send_file(
                 event.chat_id,
                 logo,
@@ -447,15 +447,15 @@ with bot:
                     [
                         custom.Button.url(
                             text="⛑ REPO MAN-USERBOT ⛑",
-                            url="https://github.com/mrismanaziz/Man-Userbot",
+                            url="https://github.com/UserXTester/Man_Userbot",
                         )
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/SharingUserbot"
+                            text="GROUP", url="https://t.me/telegram"
                         ),
                         custom.Button.url(
-                            text="CHANNEL", url="https://t.me/Lunatic0de"
+                            text="CHANNEL", url="https://t.me/telegram"
                         ),
                     ],
                 ],
@@ -481,16 +481,16 @@ with bot:
                 result = builder.article(
                     title="Repository",
                     description="Repository Man - Userbot",
-                    url="https://t.me/SharingUserbot",
-                    text="**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [Risman](https://t.me/mrismanaziz)\n✣ **Grup Support :** @SharingUserbot\n✣ **Repository :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    url="https://t.me/telegram",
+                    text="**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [telegram](https://t.me/telegram)\n✣ **Grup Support :** @telegram\n✣ **Repository :** [Man-Userbot](https://github.com/UserXTester/Man_Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/SharingUserbot"),
+                                "https://t.me/telegram"),
                             custom.Button.url(
                                 "Repo",
-                                "https://github.com/mrismanaziz/Man-Userbot"),
+                                "https://github.com/UserXTester/Man_Userbot"),
                         ],
                     ],
                     link_preview=False,
@@ -499,16 +499,16 @@ with bot:
                 result = builder.article(
                     title="✗ Man-Userbot ✗",
                     description="Man - UserBot | Telethon",
-                    url="https://t.me/SharingUserbot",
-                    text="**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [Risman](https://t.me/mrismanaziz)\n✣ **Grup Support :** @SharingUserbot\n✣ **Repository :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    url="https://t.me/telegram",
+                    text="**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [telegram](https://t.me/telegram)\n✣ **Grup Support :** @telegram\n✣ **Repository :** [Man-Userbot](https://github.com/UserXTester/Man_Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/SharingUserbot"),
+                                "https://t.me/telegram"),
                             custom.Button.url(
                                 "Repo",
-                                "https://github.com/mrismanaziz/Man-Userbot"),
+                                "https://github.com/UserXTester/Man_Userbot"),
                         ],
                     ],
                     link_preview=False,
